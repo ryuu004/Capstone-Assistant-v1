@@ -73,3 +73,16 @@ Follow these instructions to get a local copy up and running for development and
 ## Project Structure
 
 The project uses the Next.js App Router structure:
+
+
+## How It Works
+
+- The **frontend** is built with React and Next.js, providing a dynamic user experience.
+- The **backend** is implemented using Next.js API Routes. These routes handle user authentication, database operations, and communication with the Google Generative AI API.
+- **Authentication** is managed by NextAuth.js, which creates and verifies user sessions.
+- **Data** is stored in a MongoDB database, with Mongoose schemas defining the structure for users, conversations, and messages.
+- The **AI Chat** functionality sends user prompts and conversation history to the Google Generative AI API via the `/api/chat` endpoint and streams the response back to the client.
+
+---
+
+This `README.md` should give anyone a good overview of your project. Let me know if you'd like any adjustments!
