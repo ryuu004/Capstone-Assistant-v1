@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter, useParams } from 'next/navigation';
 import { useConversations } from '../context/ConversationContext';
 import { FiLogOut, FiMessageSquare, FiTrash2, FiX, FiPlus } from 'react-icons/fi';
+import DeleteConfirmationModal from './DeleteConfirmationModal';
 
 export default function Sidebar({ isOpen, onClose, conversations, onNewConversation }) {
     const { data: session } = useSession();
@@ -11,6 +13,8 @@ export default function Sidebar({ isOpen, onClose, conversations, onNewConversat
     const params = useParams();
     const { deleteConversation } = useConversations();
     const currentConversationId = params.conversationId;
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [conversationToDelete, setConversationToDelete] = useState(null);
 
     const handleSignOut = async () => {
         await signOut({ redirect: false });
@@ -19,14 +23,21 @@ export default function Sidebar({ isOpen, onClose, conversations, onNewConversat
 
     const handleConversationSelect = (id) => {
         router.push(`/chat/${id}`);
-        onClose(); // Close sidebar on mobile after selection
+        onClose();
     };
 
     const handleDelete = (e, convoId) => {
-        e.stopPropagation(); // Prevent conversation selection when deleting
-        if (window.confirm('Are you sure you want to delete this chat?')) {
-            deleteConversation(convoId, currentConversationId);
+        e.stopPropagation();
+        setConversationToDelete(convoId);
+        setModalOpen(true);
+    };
+
+    const handleConfirmDelete = () => {
+        if (conversationToDelete) {
+            deleteConversation(conversationToDelete, currentConversationId);
+            setConversationToDelete(null);
         }
+        setModalOpen(false);
     };
 
     return (
@@ -43,7 +54,7 @@ export default function Sidebar({ isOpen, onClose, conversations, onNewConversat
                     </button>
                 </div>
 
-                <button 
+                <button
                     onClick={onNewConversation}
                     className="flex items-center justify-center gap-2 w-full px-4 py-2 mb-4 text-sm font-medium text-background bg-foreground rounded-md hover:bg-foreground/90"
                 >
@@ -95,6 +106,11 @@ export default function Sidebar({ isOpen, onClose, conversations, onNewConversat
                     )}
                 </div>
             </div>
+            <DeleteConfirmationModal
+                isOpen={isModalOpen}
+                onCancel={() => setModalOpen(false)}
+                onConfirm={handleConfirmDelete}
+            />
         </>
     );
 }

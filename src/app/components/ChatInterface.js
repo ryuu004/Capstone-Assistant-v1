@@ -211,7 +211,7 @@ export default function ChatInterface() {
                 </div>
             </div>
 
-            <div className="px-4 sm:px-6 pb-6 pt-4 bg-background border-t border-white/10">
+            <div className="px-4 sm:px-6 pb-6 pt-4 bg-transparent border-t border-white/10">
                 <div className="max-w-4xl mx-auto">
                     {chatError && (
                         <div className="bg-red-500/10 border border-red-500/30 text-red-400 p-3 rounded-lg mb-4 text-sm">
@@ -229,12 +229,12 @@ export default function ChatInterface() {
                                 }
                             }}
                             placeholder="Ask me anything..."
-                            className="w-full bg-muted/50 border border-white/10 rounded-lg p-4 pr-28 resize-none text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                            className="w-full bg-transparent border border-white rounded-lg p-4 pr-28 resize-none text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
                             rows={1}
                         />
                         <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
                             <label htmlFor="file-upload" className="p-2 rounded-full hover:bg-white/10 cursor-pointer">
-                                <FiPaperclip className="text-muted-foreground" />
+                                <FiPaperclip className="text-white" />
                                 <input id="file-upload" type="file" className="hidden" onChange={handleFileChange} />
                             </label>
                             <button

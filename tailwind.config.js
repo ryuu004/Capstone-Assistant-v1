@@ -7,6 +7,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        background: 'var(--background-dark)',
+        card: 'var(--background-light)',
+        primary: 'var(--primary-blue)',
+        'primary-foreground': 'var(--text-primary)',
+        'muted': 'var(--background-hover)',
+        'muted-foreground': 'var(--text-secondary)',
+        'accent': 'var(--primary-blue-hover)',
+        'foreground': 'var(--text-primary)',
+      },
       animation: {
         'fade-in-down': 'fade-in-down 0.5s ease-out forwards',
         'fade-in-up': 'fade-in-up 0.5s ease-out forwards',

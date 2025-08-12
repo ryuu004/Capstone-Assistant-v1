@@ -50,7 +50,7 @@ export default function WelcomePage() {
           <FiCpu className="h-10 w-10 mx-auto text-primary mb-4" />
           <h3 className="text-xl font-semibold text-foreground">Advanced AI Model</h3>
           <p className="text-muted-foreground mt-2">
-            Powered by Google&apos;s Gemini 1.5 Flash for fast and accurate responses.
+            Powered by Google&apos;s Gemini 2.5 Flash-Lite for fast and accurate responses.
           </p>
         </div>
       </div>
