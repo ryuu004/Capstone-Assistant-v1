@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Capstone Assistant
+
+Capstone Assistant is an AI-powered web application designed to be a comprehensive partner for students navigating the complexities of their capstone projects. It provides assistance with coding problems, documentation, and research, all within a user-friendly chat interface.
+
+The assistant embodies the persona of "Mr. Johnson," a seasoned Filipino IT college professor, to provide guidance that is strict, humorous, and relatable to students.
+
+## Key Features
+
+- **AI-Powered Chat:** Integrates with Google's Generative AI to provide intelligent and context-aware responses to user queries.
+- **User Authentication:** Secure user registration and login system using NextAuth.js, allowing for personalized experiences.
+- **Conversation History:** Users can save, view, and manage their past conversations with the assistant.
+- **Unique Chatbot Personality:** The AI adopts the persona of a knowledgeable and experienced IT professor to make interactions more engaging and effective.
+- **File Uploads:** Users can upload files to provide more context for their questions.
+- **Responsive Design:** A clean and modern interface built with Tailwind CSS that works seamlessly across devices.
+
+## Technology Stack
+
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Database:** [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)
+- **Authentication:** [NextAuth.js](https://next-auth.js.org/)
+- **AI:** [Google Generative AI](https://ai.google.dev/)
+- **UI Components:** [React Icons](https://react-icons.github.io/react-icons/)
+- **Markdown Rendering:** [React Markdown](https://github.com/remarkjs/react-markdown)
 
 ## Getting Started
 
-First, run the development server:
+Follow these instructions to get a local copy up and running for development and testing purposes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Node.js](https://nodejs.org/) (v18.x or later recommended)
+- [npm](https://www.npmjs.com/)
+- [MongoDB](https://www.mongodb.com/try/download/community) instance (local or cloud-hosted on MongoDB Atlas)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Installation & Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/your-username/CapstoneAssistantv1.git
+    cd CapstoneAssistantv1
+    ```
 
-## Learn More
+2.  **Install dependencies:**
+    ```sh
+    npm install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3.  **Set up environment variables:**
+    Create a file named `.env.local` in the root of the project and add the following environment variables.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```env
+    # MongoDB Connection String
+    MONGODB_URI=your_mongodb_connection_string
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    # NextAuth.js secret for JWT signing
+    # Generate one here: https://generate-secret.vercel.app/32
+    NEXTAUTH_SECRET=your_nextauth_secret
+    NEXTAUTH_URL=http://localhost:3000
 
-## Deploy on Vercel
+    # Google Generative AI API Key
+    # Get one from Google AI Studio: https://aistudio.google.com/
+    GOOGLE_API_KEY=your_google_api_key
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4.  **Run the development server:**
+    ```sh
+    npm run dev
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Project Structure
+
+The project uses the Next.js App Router structure:

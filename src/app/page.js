@@ -1,103 +1,59 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useRouter } from 'next/navigation';
+import { FiArrowRight, FiCode, FiFileText, FiCpu } from 'react-icons/fi';
+
+export default function WelcomePage() {
+  const router = useRouter();
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen w-full bg-background text-foreground flex flex-col items-center justify-center p-4">
+      <div className="absolute top-0 left-0 w-full h-full bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      
+      <div className="z-10 text-center max-w-4xl mx-auto">
+        <div className="mb-8">
+          <img src="/professor.jpg" alt="Professor" className="w-32 h-32 rounded-full mx-auto border-4 border-primary/20 shadow-lg"/>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-2">
+          Capstone Assistant
+        </h1>
+        <p className="text-muted-foreground mt-6 text-lg max-w-2xl mx-auto">
+          Your AI-powered partner for navigating the complexities of your capstone project. Get help with code, documentation, and research, all in one place.
+        </p>
+        
+        <button 
+          onClick={() => router.push('/chat')}
+          className="mt-10 inline-flex items-center justify-center h-12 px-8 font-medium text-background bg-foreground rounded-md transition-colors shadow-lg hover:bg-foreground/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <span>Start Chatting</span>
+          <FiArrowRight className="ml-2 h-5 w-5" />
+        </button>
+      </div>
+
+      <div className="z-10 grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-5xl w-full">
+        <div className="bg-card/50 backdrop-blur-sm border border-white/10 rounded-lg p-6 text-center">
+          <FiCode className="h-10 w-10 mx-auto text-primary mb-4" />
+          <h3 className="text-xl font-semibold text-foreground">Code Generation</h3>
+          <p className="text-muted-foreground mt-2">
+            Generate boilerplate, fix bugs, or get help with complex algorithms.
+          </p>
+        </div>
+        <div className="bg-card/50 backdrop-blur-sm border border-white/10 rounded-lg p-6 text-center">
+          <FiFileText className="h-10 w-10 mx-auto text-primary mb-4" />
+          <h3 className="text-xl font-semibold text-foreground">Documentation Assistance</h3>
+          <p className="text-muted-foreground mt-2">
+            Draft reports, summarize articles, and format citations with ease.
+          </p>
+        </div>
+        <div className="bg-card/50 backdrop-blur-sm border border-white/10 rounded-lg p-6 text-center">
+          <FiCpu className="h-10 w-10 mx-auto text-primary mb-4" />
+          <h3 className="text-xl font-semibold text-foreground">Advanced AI Model</h3>
+          <p className="text-muted-foreground mt-2">
+            Powered by Google&apos;s Gemini 1.5 Flash for fast and accurate responses.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
