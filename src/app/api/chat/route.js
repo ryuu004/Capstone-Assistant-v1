@@ -70,7 +70,7 @@ export async function POST(req) {
     } catch(e) { /* ignore */ }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest', systemInstruction });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-lite', systemInstruction });
     
     const userMessageParts = [{ text: userInput }];
     if (file) {
